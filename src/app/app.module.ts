@@ -10,13 +10,15 @@ import {MatTableModule} from "@angular/material/table";
 import {AppRoutingModule} from "./app-routing.module";
 import {MatPaginatorModule} from "@angular/material/paginator";
 import { PaginationComponent } from './main-layout/pagination/pagination.component';
+import { FilterComponent } from './main-layout/filter/filter.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MainLayoutComponent,
     TableComponent,
-    PaginationComponent
+    PaginationComponent,
+    FilterComponent
   ],
   imports: [
     BrowserModule,

@@ -12,7 +12,7 @@ export class TableComponent {
   @Input()
   dataSource: any
 
-  displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
+  displayedColumns: string[] = ['position', 'name', 'status', 'weight', 'symbol', 'ownerStatus'];
   clickedRows = new Set<TableDataInterface>();
 
 

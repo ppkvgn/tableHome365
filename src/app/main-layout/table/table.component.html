@@ -1,4 +1,6 @@
-<table mat-table [dataSource]="dataSource" class="mat-elevation-z8 demo-table">
+<div class="mat-elevation-z8 demo-table">
+  <app-filter></app-filter>
+<table mat-table [dataSource]="dataSource" class="demo-table" >
   <!-- Position Column -->
   <ng-container matColumnDef="position">
     <th mat-header-cell *matHeaderCellDef>No.</th>
@@ -9,6 +11,12 @@
   <ng-container matColumnDef="name">
     <th mat-header-cell *matHeaderCellDef>Name</th>
     <td mat-cell *matCellDef="let element">{{element.name}}</td>
+  </ng-container>
+
+  <!-- Status Column -->
+  <ng-container matColumnDef="status">
+    <th mat-header-cell *matHeaderCellDef>Status</th>
+    <td mat-cell *matCellDef="let element">{{element.status}}</td>
   </ng-container>
 
   <!-- Weight Column -->
@@ -23,6 +31,11 @@
     <td mat-cell *matCellDef="let element">{{element.symbol}}</td>
   </ng-container>
 
+  <ng-container matColumnDef="ownerStatus">
+    <th mat-header-cell *matHeaderCellDef>Owner Status</th>
+    <td mat-cell *matCellDef="let element">{{element.ownerStatus}}</td>
+  </ng-container>
+
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
   <tr
     mat-row
@@ -31,21 +44,21 @@
     *matRowDef="let row; columns: displayedColumns;"
   ></tr>
 </table>
-<app-pagination class="mat-tab-header-pagination" [dataSource] = 'dataSource' ></app-pagination>
+<app-pagination class="mat-paginator-container" [dataSource] = 'dataSource' ></app-pagination>
+  <div>
+    <h3>
+      Click Log
+    </h3>
+  </div>
 
+  <div *ngIf="!clickedRows.size">
+    Clicked rows will be logged here
+  </div>
 
-<div>
-  <h3>
-    Click Log
-  </h3>
+  <ul>
+    <li *ngFor="let clickedRow of clickedRows">
+      Clicked on {{clickedRow.name}}
+    </li>
+  </ul>
 </div>
 
-<div *ngIf="!clickedRows.size">
-  Clicked rows will be logged here
-</div>
-
-<ul>
-  <li *ngFor="let clickedRow of clickedRows">
-    Clicked on {{clickedRow.name}}
-  </li>
-</ul>
